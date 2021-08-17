@@ -1,0 +1,15 @@
+{
+  "name": "redis-rrr",
+  "version": "1.0.0",
+  "description": "```sh $ docker run --name my-redis -p 6379:6379 -d redis:alpine redis-server --appendonly yes ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^3.1.2"
+  }
+}
