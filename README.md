@@ -1,5 +1,17 @@
+* redis 실행
+
 ```sh
-$ docker run --name my-redis -p 6379:6379 -d redis:alpine redis-server --appendonly yes
+$ docker run -i -t --name myredis -d -p 6379:6379 redis
+```
+
+* 컨테이너 접속
+
+```sh
+$ docker exec -it myredis /bin/bash
+
+root@d61d7f5c8271:/data# redis-cli
+
+127.0.0.1:6379> 
 ```
 
 * GUI 툴: p3x-redis-ui
@@ -81,12 +93,12 @@ client.smembers('animals', (err, set) => {
 
 첫 번째 인자는 key
 두 번쨰 인자는 다음과 같다.
-(180, 'zero'), (168, 'aero'), (176, 'nero'), (172, 'hero')
+(180, 'zero'), (158, 'aero'), (167, 'nero'), (166, 'hero')
 
 ```js
-client.zadd('height', 180, 'zero', 168, 'aero', 176, 'nero', 172, 'hero');
+client.zadd('height', 180, 'mung0', 168, 'mung1', 176, 'mung2', 172, 'mung3');
 client.zrange('height', 0, -1, (err, sset) => {
-  console.log(sset); // ['aero', 'hero', 'nero', 'zero'
+  console.log(sset); // ['mung0', 'mung2', 'mung3', 'mung1'
 });
 ```
 

@@ -1,8 +1,6 @@
 const redis = require("redis");
 
 const subscriber = redis.createClient();
-
-
 let messageCount = 0;
 
 subscriber.on("subscribe", function(channel, count) {

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.socket.io/4.1.3/socket.io.min.js" > </script>
+</head>
+<body>
+  <h1>저는 client1입니다</h1>
+  <button id="btn">다른 사람에게 나의 존재 알리기!!</button>
+  <script>
+    const socket = io('http://localhost:3000');
+    document.getElementById('btn').addEventListener('click', function() {
+      socket.emit('ping', 'hello world: 저는 client1 입니다');
+    })
+    socket.on('pong', data => {
+      console.log(data);
+    })
+  </script>
+</body>
+</html>
